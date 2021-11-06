@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
 
-    //private int move = 1;
+    private int move = 1;
     [SerializeField] int movespeed=1;
     [SerializeField] Rigidbody2D playerRigidBody;
     [SerializeField] Animator playerAnimator;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         playerAnimator.SetFloat("movementX", playerRigidBody.velocity.x);
         playerAnimator.SetFloat("movementY", playerRigidBody.velocity.y);
 
-        if(horizontalMovement == 1 || horizontalMovement == -1 || verticalMovement == 1 || verticalMovement == -1)
+        if(horizontalMovement == move || horizontalMovement == -move || verticalMovement == move || verticalMovement == -move)
         {
             playerAnimator.SetFloat("lastX", horizontalMovement);
             playerAnimator.SetFloat("lastY", verticalMovement);
